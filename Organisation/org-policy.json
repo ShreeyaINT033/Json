@@ -1,0 +1,23 @@
+{
+  "org_policies": [
+    {
+      "allow": "list(string)",
+      "allow_list_length": "number",
+      "constraint": "string",
+      "deny": "list(string)",
+      "deny_list_length": "number",
+      "enforce": "bool",
+      "exclude_folders": "set(string)",
+      "exclude_projects": "set(string)",
+      "folder_id": "string",
+      "organization_id": "string",
+      "policy_for": "string",
+      "policy_type": "string",
+      "project_id": "string"
+    }
+  ],
+  "required_fields": {
+    "constraint": "string",
+    "policy_for": "string"
+  }
+}

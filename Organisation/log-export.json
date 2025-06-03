@@ -1,0 +1,32 @@
+{
+  "log_sink": [
+    {
+      "destination_uri": "string",
+      "filter": "string",
+      "include_children": "bool",
+      "intercept_children": "bool",
+      "log_sink_name": "string",
+      "description": "string",
+      "parent_resource_id": "string",
+      "parent_resource_type": "string",
+      "unique_writer_identity": "bool",
+      "bigquery_options": {
+        "use_partitioned_tables": "bool"
+      },
+      "exclusions": [
+        {
+          "name": "string",
+          "description": "string",
+          "filter": "string",
+          "disabled": "bool"
+        }
+      ],
+      "disabled": "bool"
+    }
+  ],
+  "required_fields": {
+    "destination_uri": "string",
+    "log_sink_name": "string",
+    "parent_resource_id": "string"
+  }
+}

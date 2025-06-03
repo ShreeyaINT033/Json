@@ -1,0 +1,9 @@
+{
+  "iam_policy": {
+    "organizations": "list(string)",
+    "mode": "string",
+    "bindings": "map(list(string))",
+    "conditional_bindings": "list(object({ role: string, title: string, description: string, expression: string, members: list(string) }))"
+  },
+  "required_fields": {}
+}

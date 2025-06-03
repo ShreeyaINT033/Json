@@ -1,0 +1,19 @@
+{
+  "variables": {
+    "local_network": "string",
+    "peer_network": "string",
+    "export_peer_custom_routes": "bool",
+    "export_local_custom_routes": "bool",
+    "export_peer_subnet_routes_with_public_ip": "bool",
+    "export_local_subnet_routes_with_public_ip": "bool",
+    "module_depends_on": "list(any)",
+    "stack_type": "string",
+    "vpc_1_name": "string",
+    "vpc_2_name": "string",
+    "peering_enabled": "bool"
+  },
+  "required_fields": [
+    "local_network",
+    "peer_network"
+  ]
+}

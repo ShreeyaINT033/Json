@@ -1,0 +1,24 @@
+{
+  "type": "object",
+  "properties": {
+    "mode": {
+      "type": "string",
+      "enum": ["additive", "authoritative"]
+    },
+    "service_accounts": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1
+    },
+    "service_sa_bindings": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "array",
+        "items": { "type": "string" }
+      },
+      "minProperties": 1
+    }
+  },
+  "required": ["mode", "service_accounts", "service_sa_bindings"],
+  "additionalProperties": false
+}

@@ -1,0 +1,17 @@
+{
+  "folders": [
+    {
+      "parent": "string",
+      "names": "list(string)",
+      "set_roles": "bool",
+      "per_folder_admins": "map(object({ members = list(string), roles = optional(list(string)) }))",
+      "all_folder_admins": "list(string)",
+      "prefix": "string",
+      "folder_admin_roles": "list(string)",
+      "deletion_protection": "bool"
+    }
+  ],
+  "required_fields": {
+    "parent": "string"
+  }
+}

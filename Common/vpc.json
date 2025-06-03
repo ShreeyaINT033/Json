@@ -1,0 +1,23 @@
+{
+  "auto_create_subnetworks": "bool",
+  "bgp_always_compare_med": "bool",
+  "bgp_best_path_selection_mode": "string",
+  "bgp_inter_region_cost": "number | null",
+  "delete_default_internet_gateway_routes": "bool",
+  "description": "string",
+  "egress_rules": "list(object)",
+  "enable_ipv6_ula": "bool",
+  "firewall_rules": "list(object)",
+  "ingress_rules": "list(object)",
+  "internal_ipv6_range": "string | null",
+  "mtu": "number",
+  "network_firewall_policy_enforcement_order": "string | null",
+  "network_name": "string",
+  "network_profile": "string | null",
+  "project_id": "string",
+  "routes": "list(object)",
+  "routing_mode": "string",
+  "secondary_ranges": "map(list(object))",
+  "shared_vpc_host": "bool",
+  "subnets": "list(object)"
+}

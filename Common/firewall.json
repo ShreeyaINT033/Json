@@ -1,0 +1,45 @@
+{
+  "firewall_rule": {
+    "name": { "type": "string", "default": "" },
+    "description": { "type": "string", "default": "" },
+    "network": { "type": "string", "default": "" },
+    "priority": { "type": "number", "default": 1000 },
+    "direction": { "type": "string", "default": "INGRESS", "enum": ["INGRESS", "EGRESS"] },
+    "source_ranges": { "type": "list(string)", "default": [] },
+    "destination_ranges": { "type": "list(string)", "default": [] },
+    "source_tags": { "type": ["list(string)", "null"], "default": null },
+    "target_tags": { "type": ["list(string)", "null"], "default": null },
+    "allow": {
+      "type": "list",
+      "default": [],
+      "items": {
+        "type": "object",
+        "properties": {
+          "protocol": { "type": "string" },
+          "ports": { "type": "list(string)", "default": [] }
+        },
+        "required": ["protocol"]
+      }
+    },
+    "deny": {
+      "type": "list","default": [],
+      "items": {
+        "type": "object",
+        "properties": {
+          "protocol": { "type": "string" },
+          "ports": { "type": "list(string)", "default": [] }
+        },
+        "required": ["protocol"]
+      }
+    },
+    "disabled": { "type": "boolean", "default": false },
+    "log_config": {
+      "type": "object",
+      "default": { "metadata": "INCLUDE_ALL_METADATA" },
+      "properties": {
+        "metadata": { "type": "string", "enum": ["INCLUDE_ALL_METADATA", "EXCLUDE_ALL_METADATA", "INCLUDE_METADATA"] }
+      }
+    }
+  },
+  "required": ["name", "network", "direction"]
+}

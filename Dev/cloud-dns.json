@@ -1,0 +1,84 @@
+{
+    "properties": {
+    "default_key_specs_key": { "type": "object", "default": {} },
+    "default_key_specs_zone": { "type": "object", "default": {} },
+    "description": { "type": "string", "default": "Managed by Terraform" },
+    "dnssec_config": { "type": "object", "default": {} },
+    "domain": { "type": "string", "pattern": "\\.$" },
+    "enable_logging": { "type": "boolean", "default": false },
+    "force_destroy": { "type": "boolean", "default": false },
+    "labels": { "type": "object", "additionalProperties": true, "default": {} },
+    "name": { "type": "string" },
+    "private_visibility_config_networks": {
+      "type": "array",
+      "items": { "type": "string" },
+      "default": []
+    },
+    "project_id": { "type": "string" },
+    "recordsets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "type": { "type": "string" },
+          "ttl": { "type": "number" },
+          "records": { "type": ["array", "null"], "items": { "type": "string" }, "default": null },
+          "routing_policy": {
+            "type": "object",
+            "properties": {
+              "wrr": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "weight": { "type": "number" },
+                    "records": { "type": "array", "items": { "type": "string" } }
+                  },
+                  "required": ["weight", "records"]
+                },
+                "default": []
+              },
+              "geo": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "location": { "type": "string" },
+                    "records": { "type": "array", "items": { "type": "string" } }
+                  },
+                  "required": ["location", "records"]
+                },
+                "default": []
+              }
+            },
+            "default": {}
+          }
+        },
+        "required": ["name", "type", "ttl"]
+      },
+      "default": []
+    },
+    "service_namespace_url": { "type": "string", "default": "" },
+    "target_name_server_addresses": {
+      "type": "array",
+      "items": { "type": "object", "additionalProperties": true },
+      "default": []
+    },
+    "target_network": { "type": "string", "default": "" },
+    "type": {
+      "type": "string",
+      "enum": [
+        "public",
+        "private",
+        "forwarding",
+        "peering",
+        "reverse_lookup",
+        "service_directory"
+      ],
+      "default": "private"
+    }
+  },
+  "required": ["domain", "name", "project_id"],
+  "additionalProperties": false
+}

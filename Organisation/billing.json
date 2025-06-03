@@ -1,0 +1,12 @@
+{
+  "billing": {
+  "billing_dataset_location": null,
+  "billing_project_id": null,
+  "standard_billing_export_dataset_id": "standard_billing_export",
+  "detailed_billing_export_dataset_id": "detailed_billing_export",
+  "required_fields": [
+    "billing_dataset_location",
+    "billing_project_id"
+  ]
+}
+}

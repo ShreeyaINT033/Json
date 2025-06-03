@@ -1,0 +1,65 @@
+{
+  "shared_vpc": {
+    "project": {
+      "type": "object",
+      "properties": {
+        "name": { "type": "string", "default": "" },
+        "service_account": { "type": "string", "default": "" }
+      },
+      "required": ["name"]
+    },
+    "vpc_list": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "shared_vpc_name": { "type": "string", "default": "" },
+          "project_id": { "type": "string", "default": "" },
+          "delete_default_internet_gateway_routes": { "type": "boolean", "default": false },
+          "subnets": {
+            "type": "array",
+            "default": [],
+            "items": {
+              "type": "object",
+              "properties": {
+                "subnet_name": { "type": "string", "default": "" },
+                "subnet_ip": { "type": "string", "default": "" },
+                "subnet_region": { "type": "string", "default": "" },
+                "subnet_private_access": { "type": "boolean", "default": false },
+                "subnet_flow_logs": { "type": "boolean", "default": false },
+                "description": { "type": "string", "default": "" }
+              },
+              "required": ["subnet_name", "subnet_ip", "subnet_region"]
+            }
+          },
+          "secondary_ranges": {
+            "type": "object",
+            "default": {},
+            "additionalProperties": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "ip_cidr_range": { "type": "string", "default": "" },
+                  "range_name": { "type": "string", "default": "" }
+                },
+                "required": ["ip_cidr_range", "range_name"]
+              }
+            }
+          }
+        },
+        "required": ["project_id"]
+      }
+    },
+    "host_project_id": { "type": "string", "default": "" },
+    "host_subnet_regions": { "type": "array", "items": { "type": "string" }, "default": [] },
+    "service_project_ids": { "type": "array", "items": { "type": "string" }, "default": [] },
+    "host_subnets": { "type": "array", "items": { "type": "string" }, "default": [] },
+    "host_subnet_users": {
+      "type": "object",
+      "default": {},
+      "additionalProperties": { "type": "string" }
+    }
+  },
+  "required": ["project", "vpc_list", "host_project_id"]
+}

@@ -1,0 +1,35 @@
+{
+  
+  "project_id": { "type": "string", "default": null },
+  "region": { "type": "string", "default": null },
+  "network": { "type": "string", "default": null },
+  "peer_ips": { "type": "list(string)", "default": null },
+
+  "gateway_name": { "type": "string", "default": "test-vpn" },
+  "vpn_gw_ip": { "type": "string", "default": "" },
+  "shared_secret": { "type": "string", "default": "" },
+  "ipsec_secret_length": { "type": "number", "default": 8 },
+  "ike_version": { "type": "number", "default": 2 },
+  "tunnel_count": { "type": "number", "default": 1 },
+  "tunnel_name_prefix": { "type": "string", "default": "" },
+
+  "local_traffic_selector": { "type": "list(string)", "default": ["0.0.0.0/0"] },
+  "remote_traffic_selector": { "type": "list(string)", "default": ["0.0.0.0/0"] },
+  "remote_subnet": { "type": "list(string)", "default": [] },
+  "route_priority": { "type": "number", "default": 1000 },
+  "route_tags": { "type": "list(string)", "default": [] },
+
+  "cr_enabled": { "type": "bool", "default": false },
+  "cr_name": { "type": "string", "default": "" },
+  "bgp_cr_session_range": { "type": "list(string)", "default": ["169.254.1.1/30", "169.254.1.5/30"] },
+  "bgp_remote_session_range": { "type": "list(string)", "default": ["169.254.1.2", "169.254.1.6"] },
+  "peer_asn": { "type": "list(string)", "default": ["65101"] },
+  "advertised_route_priority": { "type": "number", "default": 100 }
+}
+"required": [
+    "project_id",
+    "region",
+    "network",
+    "peer_ips"
+  ]
+

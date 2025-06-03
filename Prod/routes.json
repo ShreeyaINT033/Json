@@ -1,0 +1,33 @@
+{
+  "project_id": { "type": "string", "default": null },
+  "region": { "type": "string", "default": null },
+  "network": {
+    "type": "object",
+    "properties": {
+      "name": { "type": "string" },
+      "description": { "type": "string" },
+      "tags": { "type": "string" },
+      "destination_range": { "type": "string" },
+      "priority": { "type": "string", "default": "1000" },
+      "next_hop_instance_zone": { "type": "string" },
+      "next_hop_internet": {
+        "type": "string",
+        "enum": ["true"],
+        "description": "Use the default internet gateway"
+      },
+      "next_hop_ip": { "type": "string", "format": "ipv4" },
+      "next_hop_instance": { "type": "string" },
+      "next_hop_vpn_tunnel": { "type": "string" },
+      "next_hop_ilb": { "type": "string" }
+    },
+    "required": ["destination_range"],
+    "oneOf": [
+      { "required": ["next_hop_internet"] },
+      { "required": ["next_hop_ip"] },
+      { "required": ["next_hop_instance", "next_hop_instance_zone"] },
+      { "required": ["next_hop_vpn_tunnel"] },
+      { "required": ["next_hop_ilb"] }
+    ],
+    "additionalProperties": false
+  }
+}
